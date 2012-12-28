@@ -24,7 +24,8 @@ class pencil (
 
   package { $pencil_gems: provider => 'gem', }
 
-  ## Installing the rewrite branch of pencil
+  ## Installing the rewrite branch of pencil ##
+
   $gem_build_gems = ['rake','bundler']
   package { $gem_build_gems: provider => 'gem', }
 
@@ -54,22 +55,23 @@ class pencil (
       require => Exec['build pencil'];
   }
 
-  ## End rewrite installation sidebar
+  ## End rewrite installation bits ##
 
   file {
     "${pencil_conf_dir}":
-      ensure => directory,
-      mode   => 755,
-      owner  => 'root',
-      group  => 'root';
+      ensure  => directory,
+      recurse => true,
+      mode    => 0644,
+      owner   => 'root',
+      group   => 'root',
+      source  => "puppet:///modules/pencil/etc/pencil.d";
 
     "/etc/pencil.yml":
       mode    => 644,
       owner   => "$web_user",
       group   => "$web_user",
-      content => template("pencil/etc/pencil.yml.erb"),
+      content => template("pencil/etc/pencil.yml.erb");
       #require => [Package["pencil"],File['/etc/pencil']];
-      require => [File[$pencil_conf_dir]];
   }
 
 }
