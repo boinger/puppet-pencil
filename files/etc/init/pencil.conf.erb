@@ -1,0 +1,15 @@
+description "Pencil upstart initscript"
+author "Jeff Vier <jeff@jeffvier.com>"
+
+# based on http://newcome.wordpress.com/2012/02/26/running-programs-as-linux-daemons-using-upstart/
+
+# Stanzas (list of stanzas: http://upstart.ubuntu.com/wiki/Stanzas)
+
+start on runlevel [2345]
+
+stop on runlevel [016]
+
+respawn
+
+exec /usr/bin/pencil -f /etc/pencil.yml
+

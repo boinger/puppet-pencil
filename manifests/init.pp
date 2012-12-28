@@ -1,5 +1,5 @@
 class pencil (
-  $graphite_host   = 'localhost',
+  $graphite_url    = 'http://localhost/',
   $pencil_port     = '9292',
   $pencil_conf_dir = "/etc/puppet.d",
   $web_user        = 'apache',
@@ -53,6 +53,14 @@ class pencil (
       command => "gem install pkg/pencil-0.4.0a.gem",
       creates => "/usr/bin/pencil",
       require => Exec['build pencil'];
+
+    exec { "restart-pencil":
+      command     => "stop pencil; start pencil",
+      refreshonly => true,
+      require     => [File['/etc/init/pencil.conf'], Exec['install pencil'], ],
+      subscribe   => [ File['/etc/pencil.yml'], ],
+    }
+
   }
 
   ## End rewrite installation bits ##
@@ -72,6 +80,14 @@ class pencil (
       group   => "$web_user",
       content => template("pencil/etc/pencil.yml.erb");
       #require => [Package["pencil"],File['/etc/pencil']];
+
+    "/etc/init/pencil.conf":
+      ensure  => file,
+      owner   => "root",
+      group   => "root",
+      mode    => "0644",
+      source  => "puppet:///modules/pencil/etc/init/pencil.conf",
+      require => Exec['install pencil'];
   }
 
 }
