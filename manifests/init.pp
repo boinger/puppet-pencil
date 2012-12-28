@@ -54,13 +54,11 @@ class pencil (
       creates => "/usr/bin/pencil",
       require => Exec['build pencil'];
 
-    exec { "restart-pencil":
+    "restart-pencil":
       command     => "stop pencil; start pencil",
       refreshonly => true,
       require     => [File['/etc/init/pencil.conf'], Exec['install pencil'], ],
-      subscribe   => [ File['/etc/pencil.yml'], ],
-    }
-
+      subscribe   => [ File['/etc/pencil.yml'], ];
   }
 
   ## End rewrite installation bits ##
