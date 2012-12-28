@@ -1,7 +1,7 @@
 class pencil (
   $graphite_host   = 'localhost',
   $pencil_port     = '9292',
-  $pencil_conf_dir = "/etc/puppet",
+  $pencil_conf_dir = "/etc/puppet.d",
   $web_user        = 'apache',
   ) {
 
@@ -63,17 +63,11 @@ class pencil (
       owner  => 'root',
       group  => 'root';
 
-    "${pencil_conf_dir}/conf.d":
-      ensure => directory,
-      mode   => 755,
-      owner  => 'root',
-      group  => 'root';
-
-    "${pencil_conf_dir}/pencil.yml":
+    "/etc/pencil.yml":
       mode    => 644,
       owner   => "$web_user",
       group   => "$web_user",
-      content => template("pencil/etc/pencil/pencil.yml.erb"),
+      content => template("pencil/etc/pencil.yml.erb"),
       #require => [Package["pencil"],File['/etc/pencil']];
       require => [File[$pencil_conf_dir]];
   }
