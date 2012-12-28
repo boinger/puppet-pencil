@@ -1,6 +1,8 @@
 class pencil (
-  $graphite_host = 'localhost',
-  $web_user      = 'apache',
+  $graphite_host   = 'localhost',
+  $pencil_port     = '9292',
+  $pencil_conf_dir = "/etc/puppet",
+  $web_user        = 'apache',
   ) {
 
   $pencil_gems = [
@@ -55,19 +57,25 @@ class pencil (
   ## End rewrite installation sidebar
 
   file {
-    "/etc/pencil":
+    "${pencil_conf_dir}":
       ensure => directory,
       mode   => 755,
       owner  => 'root',
       group  => 'root';
 
-    "/etc/pencil/pencil.yml":
+    "${pencil_conf_dir}/conf.d":
+      ensure => directory,
+      mode   => 755,
+      owner  => 'root',
+      group  => 'root';
+
+    "${pencil_conf_dir}/pencil.yml":
       mode    => 644,
       owner   => "$web_user",
       group   => "$web_user",
       content => template("pencil/etc/pencil/pencil.yml.erb"),
       #require => [Package["pencil"],File['/etc/pencil']];
-      require => [File['/etc/pencil']];
+      require => [File[$pencil_conf_dir]];
   }
 
 }
