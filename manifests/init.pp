@@ -1,7 +1,7 @@
 class pencil (
   $graphite_url    = 'http://localhost/',
   $pencil_port     = '9292',
-  $pencil_conf_dir = "/etc/puppet.d",
+  $pencil_conf_dir = "/etc/pencil.d",
   $web_user        = 'apache',
   ) {
 
@@ -58,7 +58,7 @@ class pencil (
       command     => "stop pencil; start pencil",
       refreshonly => true,
       require     => [File['/etc/init/pencil.conf'], Exec['install pencil'], ],
-      subscribe   => [ File['/etc/pencil.yml'], ];
+      subscribe   => [ File['/etc/pencil.yml'], File['/etc/init/pencil.conf']];
   }
 
   ## End rewrite installation bits ##
@@ -70,7 +70,7 @@ class pencil (
       mode    => 0644,
       owner   => 'root',
       group   => 'root',
-      source  => "puppet:///modules/pencil/etc/pencil.d";
+      source  => "puppet:///modules/pencil/${pencil_conf_dir}";
 
     "/etc/pencil.yml":
       mode    => 644,
