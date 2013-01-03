@@ -1,12 +1,12 @@
 class pencil (
-  $graphite_url    = 'http://localhost/',
+  $graphite_url    = 'http://192.168.99.10/',
   $pencil_port     = '9292',
   $pencil_conf_dir = "/etc/pencil.d",
   $web_user        = 'apache',
   ) {
 
   $pencil_gems = [
-    #"map",  # !rewrite
+    "map",  # !rewrite
     "rack",
     "rack-protection",  # rewrite
     "tilt",
@@ -70,12 +70,14 @@ class pencil (
       mode    => 0644,
       owner   => 'root',
       group   => 'root',
+      notify  => Exec['restart-pencil'],
       source  => "puppet:///modules/pencil/${pencil_conf_dir}";
 
     "/etc/pencil.yml":
       mode    => 644,
       owner   => "$web_user",
       group   => "$web_user",
+      notify  => Exec['restart-pencil'],
       content => template("pencil/etc/pencil.yml.erb");
       #require => [Package["pencil"],File['/etc/pencil']];
 
@@ -84,6 +86,7 @@ class pencil (
       owner   => "root",
       group   => "root",
       mode    => "0644",
+      notify  => Exec['restart-pencil'],
       source  => "puppet:///modules/pencil/etc/init/pencil.conf",
       require => Exec['install pencil'];
   }
