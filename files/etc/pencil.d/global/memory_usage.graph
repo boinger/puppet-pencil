@@ -5,17 +5,17 @@ field :system_memory_total_system_memory_free_system_memory_cached_system_memory
         :alias => "used",
         :color => 'green',
         :scale => 1024,
-        :data => "diffSeries(system.memory.total, system.memory.free, system.memory.cached, system.memory.shared, system.memory.buffers)"
+        :data => "diffSeries(stats.gauges.memory.MemTotal, stats.gauges.memory.MemFree, stats.gauges.memory.Cached, stats.gauges.memory.Dirty, stats.gauges.memory.Buffers)"
 
-field :system_memory_total,
+field :memory_MemTotal,
         :alias => "total",
         :color => 'white',
         :scale => 1024,
-        :data => "system.memory.total"
+        :data => "stats.gauges.memory.MemTotal"
 
-field :system_memory_cached,
+field :memory_Cached,
         :alias => "cached",
         :color => 'purple',
         :scale => 1024,
-        :data => "system.memory.cached"
+        :data => "stats.gauges.memory.Cached"
 
