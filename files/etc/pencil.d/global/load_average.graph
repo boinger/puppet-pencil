@@ -1,7 +1,6 @@
 # -*- mode: ruby -*-
 title 'load average'
-# this is HTML
-description 'system.load.1<br><br>You might want to add load.5 and load.15.'
+description 'system.load.1'
 
 field :system_load_1,
         :alias => "load_1",
@@ -14,4 +13,3 @@ field :system_load_5,
 field :system_load_15,
         :alias => "load_15",
         :data => "stats.gauges.loadavg.15"
-

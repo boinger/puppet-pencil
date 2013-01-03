@@ -21,4 +21,3 @@ field :cpu_user,
         :alias => "CPU/user",
         :color => 'blue',
         :data => "stats.gauges.cpu.total.user"
-

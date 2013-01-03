@@ -18,4 +18,3 @@ field :memory_Cached,
         :color => 'purple',
         :scale => 1024,
         :data => "stats.gauges.memory.Cached"
-

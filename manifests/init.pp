@@ -1,5 +1,5 @@
 class pencil (
-  $graphite_url    = 'http://192.168.99.10/',
+  $graphite_url    = 'http://graphite/',
   $pencil_port     = '9292',
   $pencil_conf_dir = "/etc/pencil.d",
   $web_user        = 'apache',
