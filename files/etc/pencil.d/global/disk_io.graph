@@ -1,0 +1,8 @@
+# -*- mode: ruby -*-
+title 'disk io'
+
+field :disk_io,
+        :alias => "io",
+        :color => 'purple',
+        :smoothing => 10,
+        :data  => "stats.gauges.iostat.*.iops"

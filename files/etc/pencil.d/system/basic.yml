@@ -1,0 +1,11 @@
+---
+title: system overview
+graphs:
+- cpu_usage
+- load_average
+- memory_usage
+#- network_traffic
+- root_disk_usage
+- disk_io
+hosts:
+- *
