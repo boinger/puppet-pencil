@@ -67,6 +67,8 @@ class pencil (
     "${pencil_conf_dir}":
       ensure  => directory,
       recurse => true,
+      purge   => true,
+      force   => true,
       mode    => 0644,
       owner   => 'root',
       group   => 'root',
