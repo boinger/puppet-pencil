@@ -32,7 +32,7 @@ class pencil (
     #"pencil",
   ]
 
-  package { $pencil_gems: provider => 'gem', }
+  package { $pencil_gems: provider => 'gem', require => [Package['ruby'], Package['ruby-devel']]}
 
   ## Installing the rewrite branch of pencil ##
 
