@@ -5,6 +5,16 @@ class pencil (
   $web_user        = 'apache',
   ) {
 
+  Package { ensure => "installed", }
+
+  $prereqs = [
+    "ruby-devel",
+  ]
+
+  package { $prereqs:
+    require => Package['ruby'],
+  }
+
   $pencil_gems = [
     "map",  # !rewrite
     "rack",
