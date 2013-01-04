@@ -3,13 +3,13 @@ title 'root disk usage'
 area :stacked
 
 field :root_used,
-        :alias => "root/used",
+        :alias => "used",
         :color => 'blue',
         :as_percent => 1,
         :data  => "divideSeries(stats.gauges.diskspace.root.byte_used,sumSeries(stats.gauges.diskspace.root.byte_used,stats.gauges.diskspace.root.byte_free))"
 
 field :root_free,
-        :alias => "root/free",
+        :alias => "free",
         :color => 'yellow',
         :as_percent => 1,
         :data  => "divideSeries(stats.gauges.diskspace.root.byte_free,sumSeries(stats.gauges.diskspace.root.byte_used,stats.gauges.diskspace.root.byte_free))"

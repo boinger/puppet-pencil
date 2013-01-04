@@ -1,17 +1,17 @@
 # -*- mode: ruby -*-
 title 'system memory usage'
 
-field :system_memory_total_system_memory_free_system_memory_cached_system_memory_shared_system_memory_buffers,
+field :memory_Total,
+        :alias => "total",
+        :color => '#222822',
+        :scale => 1024,
+        :data => "stacked(alpha(stats.gauges.memory.MemTotal,.5))"
+
+field :memory_Used,
         :alias => "used",
         :color => 'green',
         :scale => 1024,
         :data => "diffSeries(stats.gauges.memory.MemTotal, stats.gauges.memory.MemFree, stats.gauges.memory.Cached, stats.gauges.memory.Dirty, stats.gauges.memory.Buffers)"
-
-field :memory_MemTotal,
-        :alias => "total",
-        :color => 'white',
-        :scale => 1024,
-        :data => "stats.gauges.memory.MemTotal"
 
 field :memory_Cached,
         :alias => "cached",

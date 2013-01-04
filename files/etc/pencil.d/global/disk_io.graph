@@ -1,8 +1,9 @@
 # -*- mode: ruby -*-
 title 'disk io'
+vtitle 'iops'
 
 field :disk_io,
-        :alias => "io",
+        :alias => "",
         :color => 'purple',
         :smoothing => 10,
-        :data  => "stats.gauges.iostat.*.iops"
+        :data  => "diffSeries(aliasByNode(stats.gauges.iostat.*.iops,3))"
