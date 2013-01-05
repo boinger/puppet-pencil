@@ -1,0 +1,8 @@
+---
+title: web app
+graphs:
+- timers
+- hit_count
+- urls
+hosts:
+- stage-promotions*

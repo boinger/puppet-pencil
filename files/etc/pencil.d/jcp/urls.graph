@@ -1,0 +1,8 @@
+# -*- mode: ruby -*-
+title 'queries'
+area :stacked
+
+field :urls,      
+  :alias => "queries",
+  #:data => "groupByNode(stats.url)"
+  :data => "sumSeries(stats.url.get.*, stats.url.get.*.*, stats.url.get.*.*.*, stats.url.get.*.*.*.*, stats.url.get.*.*.*.*.*, stats.url.get.*.*.*.*.*.*, stats.url.get.*.*.*.*.*.*.*)"

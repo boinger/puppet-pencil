@@ -1,0 +1,7 @@
+# -*- mode: ruby -*-
+title 'hit count'
+area :stacked
+
+field :hit_count,
+  :alias => "whatever",
+  :data => "stats.url.*.count"

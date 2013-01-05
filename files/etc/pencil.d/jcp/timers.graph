@@ -1,0 +1,12 @@
+# -*- mode: ruby -*-
+title 'url timers'
+vtitle 'msec'
+area :stacked
+
+field :url_count,
+  :alias => "count",
+  :data => "stats.timers.response_time.by_url.get.*.promotions"
+
+field :urls,
+  :alias => "urls",
+  :data => "stats.timers.response_time.by_url.get"
