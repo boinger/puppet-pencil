@@ -7,13 +7,9 @@ class pencil (
 
   Package { ensure => "installed", }
 
-  $prereqs = [
-    "ruby-devel",
-  ]
+  $prereqs = ["ruby-devel", ]
 
-  package { $prereqs:
-    require => Package['ruby'],
-  }
+  package { $prereqs: require => Package['ruby'], }
 
   $pencil_gems = [
     "map",  # !rewrite
@@ -23,7 +19,7 @@ class pencil (
     "sinatra",
     "backports",  # rewrite
     "rack-test",  # rewrite
-    "eventmachine",  # rewrite
+    #{}"eventmachine",  # rewrite  ## covered in statsd
     "sinatra-contrib",  # rewrite
     "chronic",
     "numerizer",
@@ -32,11 +28,14 @@ class pencil (
     #"pencil",
   ]
 
-  package { $pencil_gems: provider => 'gem', require => [Package['ruby'], Package['ruby-devel']]}
+  package { $pencil_gems:
+    provider => 'gem',
+    require => [Package['ruby'], Package['ruby-devel'], Package['rubygems']]
+  }
 
   ## Installing the rewrite branch of pencil ##
 
-  $gem_build_gems = ['rake','bundler']
+  $gem_build_gems = ['rake']
   package { $gem_build_gems: provider => 'gem', }
 
   exec {
