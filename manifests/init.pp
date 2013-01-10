@@ -7,9 +7,8 @@ class pencil (
 
   Package { ensure => "installed", }
 
-  $prereqs = ["ruby-devel", ]
-
-  package { $prereqs: require => Package['ruby'], }
+  #$prereqs = []
+  #package { $prereqs: require => Package['ruby'], }
 
   $pencil_gems = [
     "map",  # !rewrite
