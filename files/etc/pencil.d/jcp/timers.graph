@@ -3,10 +3,10 @@ title 'url timers'
 vtitle 'msec'
 area :stacked
 
-field :url_count,
-  :alias => "count",
-  :data => "stats.timers.response_time.by_url.get.*.promotions"
+field :mean,
+  :alias => "mean",
+  :data => "stats.timers.response_time.by_url.get.*.mean"
 
-field :urls,
-  :alias => "urls",
-  :data => "stats.timers.response_time.by_url.get"
+field :upper,
+  :alias => "upper",
+  :data => "stats.timers.response_time.by_url.get.*.upper"
