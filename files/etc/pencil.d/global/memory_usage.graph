@@ -5,16 +5,16 @@ field :memory_Total,
         :alias => "total",
         :color => '#222822',
         :scale => 1024,
-        :data => "stacked(alpha(stats.gauges.memory.MemTotal,.5))"
+        :data => "stacked(alpha(stats.memory.MemTotal,.5))"
 
 field :memory_Used,
         :alias => "used",
         :color => 'green',
         :scale => 1024,
-        :data => "diffSeries(stats.gauges.memory.MemTotal, stats.gauges.memory.MemFree, stats.gauges.memory.Cached, stats.gauges.memory.Dirty, stats.gauges.memory.Buffers)"
+        :data => "diffSeries(stats.memory.MemTotal, stats.memory.MemFree, stats.memory.Cached, stats.memory.Dirty, stats.memory.Buffers)"
 
 field :memory_Cached,
         :alias => "cached",
         :color => 'purple',
         :scale => 1024,
-        :data => "stats.gauges.memory.Cached"
+        :data => "stats.memory.Cached"

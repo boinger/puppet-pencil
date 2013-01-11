@@ -5,19 +5,19 @@ area :stacked
 field :cpu_system,
         :alias => "CPU/system",
         :color => 'yellow',
-        :data => "stats.gauges.cpu.total.system"
+        :data => "stats.cpu.total.system"
 
 field :cpu_iowait,
         :alias => "CPU/iowait",
         :color => 'red',
-        :data => "stats.gauges.cpu.total.iowait"
+        :data => "stats.cpu.total.iowait"
 
 field :cpu_nice,
         :alias => "CPU/nice",
         :color => 'green',
-        :data => "stats.gauges.cpu.total.nice"
+        :data => "stats.cpu.total.nice"
 
 field :cpu_user,
         :alias => "CPU/user",
         :color => 'blue',
-        :data => "stats.gauges.cpu.total.user"
+        :data => "stats.cpu.total.user"

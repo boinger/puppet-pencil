@@ -6,10 +6,10 @@ field :root_used,
         :alias => "used",
         :color => 'blue',
         :as_percent => 1,
-        :data  => "divideSeries(stats.gauges.diskspace.root.byte_used,sumSeries(stats.gauges.diskspace.root.byte_used,stats.gauges.diskspace.root.byte_free))"
+        :data  => "divideSeries(stats.diskspace.root.byte_used,sumSeries(stats.diskspace.root.byte_used,stats.diskspace.root.byte_free))"
 
 field :root_free,
         :alias => "free",
         :color => 'yellow',
         :as_percent => 1,
-        :data  => "divideSeries(stats.gauges.diskspace.root.byte_free,sumSeries(stats.gauges.diskspace.root.byte_used,stats.gauges.diskspace.root.byte_free))"
+        :data  => "divideSeries(stats.diskspace.root.byte_free,sumSeries(stats.diskspace.root.byte_used,stats.diskspace.root.byte_free))"

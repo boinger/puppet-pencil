@@ -3,6 +3,7 @@ title: system overview
 graphs:
 - cpu_usage
 - load_average
+- procs
 - memory_usage
 #- network_traffic
 - root_disk_usage

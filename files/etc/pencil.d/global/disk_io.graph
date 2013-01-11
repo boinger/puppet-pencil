@@ -6,4 +6,4 @@ field :disk_io,
         :alias => "",
         :color => 'purple',
         :smoothing => 10,
-        :data  => "diffSeries(aliasByNode(stats.gauges.iostat.*.iops,3))"
+        :data  => "diffSeries(aliasByNode(stats.iostat.*.iops,3))"

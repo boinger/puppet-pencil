@@ -1,15 +1,15 @@
 # -*- mode: ruby -*-
 title 'load average'
-description 'system.load.1'
+description 'system load'
 
 field :system_load_1,
         :alias => "load_1",
-        :data => "stats.gauges.loadavg.01"
+        :data => "stats.loadavg.01"
 
 field :system_load_5,
         :alias => "load_5",
-        :data => "stats.gauges.loadavg.05"
+        :data => "stats.loadavg.05"
 
 field :system_load_15,
         :alias => "load_15",
-        :data => "stats.gauges.loadavg.15"
+        :data => "stats.loadavg.15"
