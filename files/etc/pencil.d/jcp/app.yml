@@ -2,6 +2,7 @@
 title: web app
 graphs:
 - timers
-- urls
+- total_qps
+- select_qps
 hosts:
 - *
