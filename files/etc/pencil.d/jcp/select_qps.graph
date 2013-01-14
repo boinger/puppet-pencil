@@ -1,0 +1,11 @@
+# -*- mode: ruby -*-
+title 'Select URL QPS'
+area :stacked
+
+field :/,      
+  :alias => "/",
+  :data => "sumSeries(stats.url.get.__)"
+
+field :favicon,      
+  :alias => "favicon.ico",
+  :data => "sumSeries(stats.url.get.__favicon___ico)"

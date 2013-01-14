@@ -1,0 +1,11 @@
+# -*- mode: ruby -*-
+title 'procs'
+description 'processes'
+
+field :procs_running,
+        :alias => "running",
+        :data => "stacked(stats.loadavg.processes_running)"
+
+field :procs_total,
+        :alias => "total",
+        :data => "stats.loadavg.processes_total"

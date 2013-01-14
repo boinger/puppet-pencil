@@ -1,0 +1,11 @@
+# -*- mode: ruby -*-
+title 'Total QPS'
+area :stacked
+
+field :gets,      
+  :alias => "get queries",
+  :data => "sumSeries(stats.url.get.*)"
+
+field :posts,      
+  :alias => "post queries",
+  :data => "sumSeries(stats.url.post.*)"
