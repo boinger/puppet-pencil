@@ -6,6 +6,12 @@ class pencil (
   ) {
 
   Package { ensure => "installed", }
+  File {
+    ensure => present,
+    mode   => 0644,
+    owner  => 'root',
+    group  => 'root',
+  }
 
   #$prereqs = []
   #package { $prereqs: require => Package['ruby'], }
@@ -18,13 +24,11 @@ class pencil (
     "sinatra",
     "backports",  # rewrite
     "rack-test",  # rewrite
-    #{}"eventmachine",  # rewrite  ## covered in statsd
     "sinatra-contrib",  # rewrite
     "chronic",
     "numerizer",
     "chronic_duration",  # rewrite
     "graphite_graph",  # rewrite
-    #"pencil",
   ]
 
   package { $pencil_gems:
@@ -54,7 +58,7 @@ class pencil (
       cwd     => "/usr/src/pencil",
       command => "rake build",
       creates => "/usr/src/pencil/pkg/pencil-0.4.0a.gem",
-      require => [Package['rake'],Exec['branch pencil']];
+      require => [ Package['rake'],Exec['branch pencil'], ];
 
     "install pencil":
       cwd     => "/usr/src/pencil",
@@ -65,8 +69,8 @@ class pencil (
     "restart-pencil":
       command     => "stop pencil; start pencil",
       refreshonly => true,
-      require     => [File['/etc/init/pencil.conf'], Exec['install pencil'], ],
-      subscribe   => [ File['/etc/pencil.yml'], File['/etc/init/pencil.conf']];
+      require     => [ File['/etc/init/pencil.conf'], Exec['install pencil'], ],
+      subscribe   => [ File['/etc/pencil.yml'], File['/etc/init/pencil.conf'], ];
   }
 
   ## End rewrite installation bits ##
@@ -77,25 +81,16 @@ class pencil (
       recurse => true,
       purge   => true,
       force   => true,
-      mode    => 0644,
-      owner   => 'root',
-      group   => 'root',
       notify  => Exec['restart-pencil'],
       source  => "puppet:///modules/pencil/${pencil_conf_dir}";
 
     "/etc/pencil.yml":
-      mode    => 644,
       owner   => "$web_user",
       group   => "$web_user",
       notify  => Exec['restart-pencil'],
       content => template("pencil/etc/pencil.yml.erb");
-      #require => [Package["pencil"],File['/etc/pencil']];
 
     "/etc/init/pencil.conf":
-      ensure  => file,
-      owner   => "root",
-      group   => "root",
-      mode    => "0644",
       notify  => Exec['restart-pencil'],
       source  => "puppet:///modules/pencil/etc/init/pencil.conf",
       require => Exec['install pencil'];
