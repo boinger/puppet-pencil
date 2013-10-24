@@ -2,11 +2,12 @@
 title: system overview
 graphs:
 - cpu_usage
+- disk_io
 - load_average
-- procs
 - memory_usage
+- procs
 #- network_traffic
 - root_disk_usage
-- disk_io
+- sockets
 hosts:
 - *

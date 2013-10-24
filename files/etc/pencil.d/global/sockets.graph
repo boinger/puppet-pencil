@@ -1,0 +1,34 @@
+# -*- mode: ruby -*-
+title 'sockets'
+
+field :tcp_alloc
+  :alias => "TCP - sockets allocated",
+  :data  => "stats.sockets.tcp_alloc"
+
+field :tcp_inuse
+  :alias => "TCP - sockets in use",
+  :data  => "stats.sockets.tcp_inuse"
+
+field :tcp_mem
+  :alias => "TCP - mem pages",
+  :data  => "stats.sockets.tcp_mem"
+
+field :tcp_orphan
+  :alias => "TCP - orphan sockets",
+  :data  => "stats.sockets.tcp_orphan"
+
+field :tcp_tw
+  :alias => "TCP - in TIME-WAIT",
+  :data  => "stats.sockets.tcp_tw"
+
+field :udp_inuse
+  :alias => "UDP - in use",
+  :data  => "stats.sockets.udp_inuse"
+
+field :udp_mem
+  :alias => "UDP - mem pages",
+  :data  => "stats.sockets.udp_mem"
+
+field :used
+  :alias => "total used",
+  :data  => "stats.sockets.used"
