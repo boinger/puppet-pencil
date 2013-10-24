@@ -2,33 +2,33 @@
 title 'sockets'
 
 field :tcp_alloc,
-  :alias => "TCP/allocated",
+  :alias => "TCP - allocated",
   :data  => "stats.sockets.tcp_alloc"
 
 field :tcp_inuse,
-  :alias => "TCP/in-use",
+  :alias => "TCP - in use",
   :data  => "stats.sockets.tcp_inuse"
 
 field :tcp_mem,
-  :alias => "TCP/mem-pages",
+  :alias => "TCP - mem pages",
   :data  => "stats.sockets.tcp_mem"
 
 field :tcp_orphan,
-  :alias => "TCP/orphans",
+  :alias => "TCP - orphans",
   :data  => "stats.sockets.tcp_orphan"
 
 field :tcp_tw,
-  :alias => "TCP/TIME-WAIT",
+  :alias => "TCP - TIME-WAIT",
   :data  => "stats.sockets.tcp_tw"
 
 field :udp_inuse,
-  :alias => "UDP/in-use",
+  :alias => "UDP - in use",
   :data  => "stats.sockets.udp_inuse"
 
 field :udp_mem,
-  :alias => "UDP/mem-pages",
+  :alias => "UDP - mem pages",
   :data  => "stats.sockets.udp_mem"
 
 field :used,
-  :alias => "total-used",
+  :alias => "total used",
   :data  => "stats.sockets.used"
