@@ -69,8 +69,17 @@ class pencil (
     "restart-pencil":
       command     => "stop pencil; start pencil",
       refreshonly => true,
-      require     => [ File['/etc/init/pencil.conf'], Exec['install pencil'], ],
-      subscribe   => [ File['/etc/pencil.yml'], File['/etc/init/pencil.conf'], ];
+      require     => [ File['/etc/init/pencil.conf'], Exec['install pencil'], ];
+
+    "reload pencil":
+      command     => "/usr/bin/curl localhost:9292/reload",
+      refreshonly => true,
+      require     => Exec['install pencil'],
+      subscribe   => [
+        File['/etc/pencil.yml'],
+        File['/etc/init/pencil.conf'],
+        File[$pencil_conf_dir],
+        ];
   }
 
   ## End rewrite installation bits ##
@@ -81,17 +90,14 @@ class pencil (
       recurse => true,
       purge   => true,
       force   => true,
-      notify  => Exec['restart-pencil'],
       source  => "puppet:///modules/pencil/${pencil_conf_dir}";
 
     "/etc/pencil.yml":
       owner   => "$web_user",
       group   => "$web_user",
-      notify  => Exec['restart-pencil'],
       content => template("pencil/etc/pencil.yml.erb");
 
     "/etc/init/pencil.conf":
-      notify  => Exec['restart-pencil'],
       source  => "puppet:///modules/pencil/etc/init/pencil.conf",
       require => Exec['install pencil'];
   }
