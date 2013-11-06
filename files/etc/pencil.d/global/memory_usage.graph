@@ -5,7 +5,7 @@ field :memory_Total,
         :alias => "total",
         :color => '#222822',
         #:scale => 1024,
-        :data => "stacked(alpha(stats.memory.MemTotal,.5))"
+        :data => "stacked(alpha(stats.memory.MemTotal,.3))"
 
 field :memory_Used,
         :alias => "used",
