@@ -88,7 +88,7 @@ class pencil (
     "${pencil_conf_dir}":
       ensure  => directory,
       recurse => true,
-      purge   => true,
+      #purge   => true,
       force   => true,
       source  => "puppet:///modules/pencil/${pencil_conf_dir}";
 
