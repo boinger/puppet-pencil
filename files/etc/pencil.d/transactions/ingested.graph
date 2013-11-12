@@ -1,0 +1,8 @@
+# -*- mode: ruby -*-
+title 'ingested'
+linemode :staircase
+area :stacked
+
+field :success,
+        :color => 'blue',
+        :data => 'hitcount(stats.service.ingester.archive.success, "1hour")'

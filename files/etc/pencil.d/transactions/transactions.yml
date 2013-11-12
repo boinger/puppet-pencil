@@ -1,0 +1,8 @@
+---
+title: transactions
+graphs:
+- ingested
+- processed
+hosts:
+- c-processor
+- c-ingester*
