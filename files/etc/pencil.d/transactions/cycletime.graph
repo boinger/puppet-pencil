@@ -1,0 +1,7 @@
+# -*- mode: ruby -*-
+title 'cycle time'
+linemode :connected
+
+field :cycletime,
+    :color => 'blue',
+    :data => 'stats.timers.service.watcher.transaction.event-CYCLE.mean'

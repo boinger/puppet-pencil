@@ -3,6 +3,7 @@ title: transactions
 graphs:
 - ingested
 - processed
+- cycletime
 hosts:
 - c-processor
 - c-ingester*
