@@ -1,0 +1,6 @@
+---
+title: build status
+graphs:
+- buildstatus
+hosts:
+- master-jenkins-0

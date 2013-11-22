@@ -1,0 +1,16 @@
+# -*- mode: ruby -*-
+title 'processed'
+linemode :staircase
+area :stacked
+
+field :success,
+        :color => 'green',
+        :data => 'hitcount(sumSeries(stats.jenkins.*.SUCCESS), "1hour")'
+
+field :failure,
+        :color => 'red',
+        :data => 'hitcount(sumSeries(stats.jenkins.*.FAILURE), "1hour")'
+
+field :aborted,
+    :color => 'grey',
+    :data => 'hitcount(sumSeries(stats.jenkins.*.ABORTED), "1hour")'
