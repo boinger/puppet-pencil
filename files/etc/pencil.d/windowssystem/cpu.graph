@@ -1,0 +1,9 @@
+# -*- mode: ruby -*-
+title 'cpu usage'
+area :stacked
+
+field :cpu_system,
+        :alias => "CPU - Total",
+        :color => 'yellow',
+        :data => "stats.windows.OSmetrics.cpu.Total"
+

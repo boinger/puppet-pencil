@@ -1,0 +1,13 @@
+---
+title: windows system overview
+graphs:
+- cpu
+#- disk_io
+#- load_average
+#- memory_usage
+#- procs
+#- network_traffic
+#- root_disk_usage
+#- sockets
+hosts:
+- *
