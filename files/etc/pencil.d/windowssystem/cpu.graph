@@ -5,17 +5,17 @@ area :stacked
 field :cpu_total,
         :alias => "CPU - total",
         :color => 'yellow',
-        :data => "stats.windows.OSmetrics.cpu.total"
+        :data => "stats.windows.OSmetrics.cpu.Total"
 
 field :cpu_priv,
 	:alias => "CPU - io",
 	:color => 'red',
-	:data => "stats.windows.OSmetrics.cpu.privileged"
+	:data => "stats.windows.OSmetrics.cpu.Privileged"
 
 field :cpu_idle,
 	:alias => "CPU - idle",
 	:color => 'green',
-	:data => "stats.windows.OSmetrics.cpu.idle"
+	:data => "stats.windows.OSmetrics.cpu.Idle"
 
 field :cpu_user,
 	:alias => "CPU - user",
