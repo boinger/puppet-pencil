@@ -2,8 +2,23 @@
 title 'cpu usage'
 area :stacked
 
-field :cpu_system,
-        :alias => "CPU - Total",
+field :cpu_total,
+        :alias => "CPU - total",
         :color => 'yellow',
-        :data => "stats.windows.OSmetrics.cpu.Total"
+        :data => "stats.windows.OSmetrics.cpu.total"
+
+field :cpu_priv,
+	:alias => "CPU - io",
+	:color => 'red',
+	:data => "stats.windows.OSmetrics.cpu.privileged"
+
+field :cpu_idle,
+	:alias => "CPU - idle",
+	:color => 'green',
+	:data => "stats.windows.OSmetrics.cpu.idle"
+
+field :cpu_user,
+	:alias => "CPU - user"
+	:color => 'blue'
+	:data => "stats.windows.OSmetrics.cpu.user"
 
