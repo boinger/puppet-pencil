@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+title 'memory usage'
+area :stacked
+
+field :memory_Total,
+        :alias => "memory - available",
+        :color => 'green',
+        #:scale => 1024,
+        :data => "stats.windows.OSmetics.memory.AvailMB"
+
+field :memory_commit,
+        :alias => "memory - commit",
+        :color => 'yellow',
+        #:scale => 1024,
+        :data => "stats.windows.OSmetrics.memory.CommitMB"
+
+field :memory_pagesreads,
+        :alias => "memory - pages reads",
+        :color => 'purple',
+        #:scale => 1024,
+        :data => "stats.windows.OSmetrics.memory.PagesReads"
+

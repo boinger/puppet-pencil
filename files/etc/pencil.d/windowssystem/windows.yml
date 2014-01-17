@@ -4,7 +4,7 @@ graphs:
 - cpu
 #- disk_io
 #- load_average
-#- memory_usage
+- memory
 #- procs
 #- network_traffic
 #- root_disk_usage
