@@ -6,7 +6,7 @@ field :memory_Total,
         :alias => "memory - available",
         :color => 'green',
         #:scale => 1024,
-        :data => "stats.windows.OSmetics.memory.AvailMB"
+        :data => "stats.windows.OSmetrics.memory.AvailMB"
 
 field :memory_commit,
         :alias => "memory - commit",
