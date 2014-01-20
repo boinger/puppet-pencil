@@ -8,7 +8,7 @@ field :disk_queue,
         :smoothing => 10,
         :data  => "diffSeries(stats.windows.OSmetrics.disk.Queue)"
 
-field :disk_writes
+field :disk_writes,
 	:alias => "disk - writes",
 	:color => 'green',
 	:smoothing => 10,
