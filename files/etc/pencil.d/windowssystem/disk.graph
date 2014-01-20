@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+title 'disk'
+area :stacked
+
+field :disk_queue,
+        :alias => "disk - queue",
+        :color => 'purple',
+        :smoothing => 10,
+        :data  => "diffSeries(stats.windows.OSmetrics.disk.Queue)"
+
+field :disk_writes
+	:alias => "disk - writes",
+	:color => 'green',
+	:smoothing => 10,
+	:data => "diffSeries(stats.windows.OSmetrics.disk.Writes)"
+
+

@@ -2,7 +2,7 @@
 title: windows system overview
 graphs:
 - cpu
-#- disk_io
+- disk
 #- load_average
 - memory
 #- procs
