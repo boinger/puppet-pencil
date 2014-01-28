@@ -21,8 +21,8 @@ field :memory_pagesreads,
         :data => "stats.windows.OSmetrics.memory.PagesReads"
 
 field :memory_faults,
-        :alias => "memory - faults per second".
+        :alias => "memory - faults per second",
 	:color => 'red',
-	:data => stats.windows.OSmetrics.memory.Faults_per_second
+	:data => "stats.windows.OSmetrics.memory.Faults_per_second"
 
 
