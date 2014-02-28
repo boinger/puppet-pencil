@@ -1,10 +1,10 @@
 ---
 ## !!! This file managed by puppet !!!
-:graphite_url: <%= graphite_url %>
-:port: <%= pencil_port %>
+:graphite_url: <%= @graphite_url %>
+:port: <%= @pencil_port %>
 :host_sort: "sensible"
 :metric_format: "%m.%c.%h" #%m metric, %c cluster, %h host
-:templates_dir: "<%= pencil_conf_dir %>"
+:templates_dir: "<%= @pencil_conf_dir %>"
 :refresh_rate: 60 # refresh rate for images in seconds
 
 # careful! these are properties as specified by the graphite-dsl now
