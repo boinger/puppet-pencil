@@ -5,8 +5,8 @@ area :stacked
 
 field :success,
         :color => 'green',
-        :data => 'hitcount(stats.service.watcher.transaction.status-SUCCESS, "1hour")'
+        :data => 'hitcount(stats.service.watcher.*.status-SUCCESS, "1hour")'
 
 field :fail,
         :color => 'red',
-        :data => 'hitcount(stats.service.watcher.transaction.status-FAIL, "1hour")'
+        :data => 'hitcount(stats.service.watcher.*.status-FAIL, "1hour")'
