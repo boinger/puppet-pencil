@@ -4,4 +4,4 @@ linemode :connected
 
 field :cycletime,
     :color => 'blue',
-    :data => 'stats.timers.service.watcher.transaction.event-CYCLE.mean'
+    :data => 'stats.timers.service.watcher.core.event-CYCLE.mean'
