@@ -5,5 +5,11 @@ graphs:
 - processed
 - cycletime
 hosts:
-- c-processor
-- c-ingester*
+# processors
+- c-94
+- c-93
+# ingesters
+- c-88
+- c-90
+- c-91
+- c-92
