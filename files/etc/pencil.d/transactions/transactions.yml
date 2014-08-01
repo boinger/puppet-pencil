@@ -6,10 +6,10 @@ graphs:
 - cycletime
 hosts:
 # processors
-- c-94
-- c-93
+- c93
+- c94
 # ingesters
-- c-88
-- c-90
-- c-91
-- c-92
+- c88
+- c90
+- c91
+- c92
